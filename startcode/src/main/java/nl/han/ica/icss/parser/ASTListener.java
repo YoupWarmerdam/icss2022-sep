@@ -70,6 +70,19 @@ public class ASTListener extends ICSSBaseListener {
 	}
 
 	@Override
+	public void enterVariableAssignment(ICSSParser.VariableAssignmentContext ctx) {
+		VariableAssignment variableAssignment = new VariableAssignment();
+		variableAssignment.name = new VariableReference(ctx.CAPITAL_IDENT().getText());
+		currentContainer.push(variableAssignment);
+	}
+
+	@Override
+	public void exitVariableAssignment(ICSSParser.VariableAssignmentContext ctx) {
+		VariableAssignment variableAssignment = (VariableAssignment) currentContainer.pop();
+		currentContainer.peek().addChild(variableAssignment);
+	}
+
+	@Override
 	public void enterDeclaration(ICSSParser.DeclarationContext ctx) {
 		Declaration declaration = new Declaration();
 		currentContainer.push(declaration);
@@ -84,12 +97,24 @@ public class ASTListener extends ICSSBaseListener {
 
 	@Override
 	public void exitExpression(ICSSParser.ExpressionContext ctx) {
-		Literal literal;
+		Expression expression;
+
 		if (ctx.COLOR() != null) {
-			literal = new ColorLiteral(ctx.COLOR().getText());
+			expression = new ColorLiteral(ctx.COLOR().getText());
+		} else if (ctx.PIXELSIZE() != null) {
+			expression = new PixelLiteral(ctx.PIXELSIZE().getText());
+		} else if (ctx.PERCENTAGE() != null) {
+			expression = new PercentageLiteral(ctx.PERCENTAGE().getText());
+		} else if (ctx.SCALAR() != null) {
+			expression = new ScalarLiteral(ctx.SCALAR().getText());
+		} else if (ctx.TRUE() != null) {
+			expression = new BoolLiteral(true);
+		} else if (ctx.FALSE() != null) {
+			expression = new BoolLiteral(false);
 		} else {
-			literal = new PixelLiteral(ctx.PIXELSIZE().getText());
+			expression = new VariableReference(ctx.CAPITAL_IDENT().getText());
 		}
-		currentContainer.peek().addChild(literal);
+
+		currentContainer.peek().addChild(expression);
 	}
 }
