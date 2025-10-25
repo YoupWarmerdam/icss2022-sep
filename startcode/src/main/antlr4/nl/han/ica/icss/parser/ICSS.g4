@@ -50,4 +50,7 @@ stylerule: selector OPEN_BRACE declaration* CLOSE_BRACE;
 selector: LOWER_IDENT | ID_IDENT | CLASS_IDENT;
 variableAssignment: CAPITAL_IDENT ASSIGNMENT_OPERATOR expression SEMICOLON;
 declaration: LOWER_IDENT COLON expression SEMICOLON;
-expression: COLOR | PIXELSIZE | PERCENTAGE | SCALAR | TRUE | FALSE | CAPITAL_IDENT;
+expression: literal                          #literalExpressie
+        | expression MUL expression          #mulExpressie
+        | expression (PLUS | MIN) expression #plusMinExpressie;
+literal: COLOR | PIXELSIZE | PERCENTAGE | SCALAR | TRUE | FALSE | CAPITAL_IDENT;

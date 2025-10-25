@@ -40,7 +40,7 @@ public class ASTListener extends ICSSBaseListener {
 
 	@Override
 	public void exitStylesheet(ICSSParser.StylesheetContext ctx) {
-		Stylesheet stylesheet = (Stylesheet ) currentContainer.pop();
+		Stylesheet stylesheet = (Stylesheet) currentContainer.pop();
 		ast.setRoot(stylesheet);
 	}
 
@@ -96,9 +96,34 @@ public class ASTListener extends ICSSBaseListener {
 	}
 
 	@Override
-	public void exitExpression(ICSSParser.ExpressionContext ctx) {
-		Expression expression;
+	public void enterPlusMinExpressie(ICSSParser.PlusMinExpressieContext ctx) {
+		if (ctx.getChild(1).getText().equals("+")) {
+			currentContainer.push(new AddOperation());
+		} else if (ctx.getChild(1).getText().equals("-")) {
+			currentContainer.push(new SubtractOperation());
+		}
+	}
 
+	@Override
+	public void exitPlusMinExpressie(ICSSParser.PlusMinExpressieContext ctx) {
+		Operation operation = (Operation) currentContainer.pop();
+		currentContainer.peek().addChild(operation);
+	}
+
+	@Override
+	public void enterMulExpressie(ICSSParser.MulExpressieContext ctx) {
+		currentContainer.push(new MultiplyOperation());
+	}
+
+	@Override
+	public void exitMulExpressie(ICSSParser.MulExpressieContext ctx) {
+		Operation operation = (Operation) currentContainer.pop();
+		currentContainer.peek().addChild(operation);
+	}
+
+	@Override
+	public void exitLiteral(ICSSParser.LiteralContext ctx) {
+		Expression expression;
 		if (ctx.COLOR() != null) {
 			expression = new ColorLiteral(ctx.COLOR().getText());
 		} else if (ctx.PIXELSIZE() != null) {
@@ -114,7 +139,6 @@ public class ASTListener extends ICSSBaseListener {
 		} else {
 			expression = new VariableReference(ctx.CAPITAL_IDENT().getText());
 		}
-
 		currentContainer.peek().addChild(expression);
 	}
 }
