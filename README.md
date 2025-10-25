@@ -20,8 +20,8 @@ This tutorial is tested with Java version 17 (OpenJDK), IntelliJ and Maven. To e
 | PA01 | Implementeer een grammatica plus listener die AST's kan maken voor ICSS documenten die "eenvoudige opmaak" kan parseren. `level0.icss` kan worden geparseerd. `testParseLevel0()` slaagt. | Must | 10 | ✅ |
 | PA02 | Breid je grammatica en listener uit zodat nu ook assignments van variabelen en het gebruik ervan geparseerd kunnen worden. `level1.icss` kan worden geparseerd. `testParseLevel1()` slaagt. | Must | 10 | ✅ |
 | PA03 | Breid je grammatica en listener uit zodat je nu ook optellen en aftrekken en vermenigvuldigen kunt parseren, rekening houdend met de rekenregels. `level2.icss` kan worden geparseerd. `testParseLevel2()` slaagt. | Must | 10 | ✅ |
-| PA04 | Breid je grammatica en listener uit zodat je if/else-statements aankunt. `level3.icss` kan worden geparseerd. `testParseLevel3()` slaagt. | Must | 10 | ⏳ |
-| PA05 | PA01 t/m PA04 leveren minimaal 30 punten op | Must | 0 | ⏳ |
+| PA04 | Breid je grammatica en listener uit zodat je if/else-statements aankunt. `level3.icss` kan worden geparseerd. `testParseLevel3()` slaagt. | Must | 10 | ✅ |
+| PA05 | PA01 t/m PA04 leveren minimaal 30 punten op | Must | 0 | ✅ |
 
 ### 4.3 Checken (30 punten)
 | ID | Omschrijving | Prio | Punten | Status |
@@ -51,7 +51,7 @@ This tutorial is tested with Java version 17 (OpenJDK), IntelliJ and Maven. To e
 |--------------|--------|--------|
 | TBD - Af te spreken met docent | Max 20 | ⏳ |
 
-**Huidige stand: 30/120 punten**
+**Huidige stand: 40/120 punten**
 
 ## Running ICSSTool
 ICSSTool is a `pom.xml` based, Maven-runnable application.
