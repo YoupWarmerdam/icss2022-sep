@@ -46,9 +46,12 @@ ASSIGNMENT_OPERATOR: ':=';
 
 //--- PARSER: ---
 stylesheet: (variableAssignment | stylerule)+ EOF;
-stylerule: selector OPEN_BRACE declaration* CLOSE_BRACE;
+stylerule: selector OPEN_BRACE body CLOSE_BRACE;
 selector: LOWER_IDENT | ID_IDENT | CLASS_IDENT;
 variableAssignment: CAPITAL_IDENT ASSIGNMENT_OPERATOR expression SEMICOLON;
+body: (ifClause | declaration)*;
+ifClause: IF BOX_BRACKET_OPEN expression BOX_BRACKET_CLOSE OPEN_BRACE body CLOSE_BRACE elseClause?;
+elseClause: ELSE OPEN_BRACE body CLOSE_BRACE;
 declaration: LOWER_IDENT COLON expression SEMICOLON;
 expression: literal                          #literalExpressie
         | expression MUL expression          #mulExpressie
