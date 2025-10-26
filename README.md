@@ -26,13 +26,13 @@ This tutorial is tested with Java version 17 (OpenJDK), IntelliJ and Maven. To e
 ### 4.3 Checken (30 punten)
 | ID | Omschrijving | Prio | Punten | Status |
 |----|--------------|------|--------|--------|
-| CH00 | Minimaal vier van onderstaande checks **moeten** zijn geïmplementeerd | Must | 0 | ⏳ |
-| CH01 | Controleer of er geen variabelen worden gebruikt die niet gedefinieerd zijn. | Should | 5 | ⏳ |
-| CH02 | Controleer of de operanden van de operaties plus en min van gelijk type zijn. Controleer dat bij vermenigvuldigen minimaal een operand een scalaire waarde is. | Should | 5 | ⏳ |
-| CH03 | Controleer of er geen kleuren worden gebruikt in operaties (plus, min en keer). | Should | 5 | ⏳ |
-| CH04 | Controleer of bij declaraties het type van de value klopt met de property. | Should | 5 | ⏳ |
-| CH05 | Controleer of de conditie bij een if-statement van het type boolean is (zowel bij een variabele-referentie als een boolean literal) | Should | 5 | ⏳ |
-| CH06 | Controleer of variabelen enkel binnen hun scope gebruikt worden | Must | 5 | ⏳ |
+| CH00 | Minimaal vier van onderstaande checks **moeten** zijn geïmplementeerd | Must | 0 | ✅ |
+| CH01 | Controleer of er geen variabelen worden gebruikt die niet gedefinieerd zijn. | Should | 5 | ✅ |
+| CH02 | Controleer of de operanden van de operaties plus en min van gelijk type zijn. Controleer dat bij vermenigvuldigen minimaal een operand een scalaire waarde is. | Should | 5 | ✅ |
+| CH03 | Controleer of er geen kleuren worden gebruikt in operaties (plus, min en keer). | Should | 5 | ✅ |
+| CH04 | Controleer of bij declaraties het type van de value klopt met de property. | Should | 5 | ✅ |
+| CH05 | Controleer of de conditie bij een if-statement van het type boolean is (zowel bij een variabele-referentie als een boolean literal) | Should | 5 | ✅ |
+| CH06 | Controleer of variabelen enkel binnen hun scope gebruikt worden | Must | 5 | ✅ |
 
 ### 4.4 Transformeren (20 punten)
 | ID | Omschrijving | Prio | Punten | Status |
@@ -51,7 +51,8 @@ This tutorial is tested with Java version 17 (OpenJDK), IntelliJ and Maven. To e
 |--------------|--------|--------|
 | TBD - Af te spreken met docent | Max 20 | ⏳ |
 
-**Huidige stand: 40/120 punten**
+**Huidige stand: 7
+0/120 punten**
 
 ## Running ICSSTool
 ICSSTool is a `pom.xml` based, Maven-runnable application.
