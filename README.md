@@ -37,8 +37,8 @@ This tutorial is tested with Java version 17 (OpenJDK), IntelliJ and Maven. To e
 ### 4.4 Transformeren (20 punten)
 | ID | Omschrijving | Prio | Punten | Status |
 |----|--------------|------|--------|--------|
-| TR01 | Evalueer expressies. Schrijf een transformatie in `Evaluator` die alle `Expression` knopen in de AST door een `Literal` knoop met de berekende waarde vervangt. | Must | 10 | ⏳ |
-| TR02 | Evalueer if/else expressies. Schrijf een transformatie in `Evaluator` die alle `IfClause`s uit de AST verwijdert volgens de conditie-logica. | Must | 10 | ⏳ |
+| TR01 | Evalueer expressies. Schrijf een transformatie in `Evaluator` die alle `Expression` knopen in de AST door een `Literal` knoop met de berekende waarde vervangt. | Must | 10 | ✅      |
+| TR02 | Evalueer if/else expressies. Schrijf een transformatie in `Evaluator` die alle `IfClause`s uit de AST verwijdert volgens de conditie-logica. | Must | 10 | ✅      |
 
 ### 4.5 Genereren (10 punten)
 | ID | Omschrijving | Prio | Punten | Status |
@@ -51,8 +51,7 @@ This tutorial is tested with Java version 17 (OpenJDK), IntelliJ and Maven. To e
 |--------------|--------|--------|
 | TBD - Af te spreken met docent | Max 20 | ⏳ |
 
-**Huidige stand: 7
-0/120 punten**
+**Huidige stand: 90/120 punten**
 
 ## Running ICSSTool
 ICSSTool is a `pom.xml` based, Maven-runnable application.
