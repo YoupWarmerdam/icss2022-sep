@@ -43,15 +43,15 @@ This tutorial is tested with Java version 17 (OpenJDK), IntelliJ and Maven. To e
 ### 4.5 Genereren (10 punten)
 | ID | Omschrijving | Prio | Punten | Status |
 |----|--------------|------|--------|--------|
-| GE01 | Implementeer de generator in `nl.han.ica.icss.generator.Generator` die de AST naar een CSS2-compliant string omzet. | Must | 5 | ⏳ |
-| GE02 | Zorg dat de CSS met twee spaties inspringing per scopeniveau gegenereerd wordt. | Must | 5 | ⏳ |
+|| GE01 | Implementeer de generator in `nl.han.ica.icss.generator.Generator` die de AST naar een CSS2-compliant string omzet. | Must | 5 | ✅ |
+|| GE02 | Zorg dat de CSS met twee spaties inspringing per scopeniveau gegenereerd wordt. | Must | 5 | ✅ |
 
 ### 4.6 Eigen Uitbreidingen (20 punten)
 | Omschrijving | Punten | Status |
 |--------------|--------|--------|
 | TBD - Af te spreken met docent | Max 20 | ⏳ |
 
-**Huidige stand: 90/120 punten**
+**Huidige stand: 100/120 punten**
 
 ## Running ICSSTool
 ICSSTool is a `pom.xml` based, Maven-runnable application.
