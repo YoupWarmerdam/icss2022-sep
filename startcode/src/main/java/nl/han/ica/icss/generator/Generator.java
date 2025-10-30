@@ -28,6 +28,7 @@ public class Generator {
 
 		for (ASTNode child : rule.body) {
 			if (child instanceof Declaration) {
+				// Two spaces per scope level (GE02 requirement)
 				stylerule.append("  ").append(generateDeclaration((Declaration) child)).append("\n");
 			}
 		}

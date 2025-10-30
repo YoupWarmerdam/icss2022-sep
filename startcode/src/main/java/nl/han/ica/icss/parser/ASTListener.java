@@ -58,6 +58,7 @@ public class ASTListener extends ICSSBaseListener {
 
 	@Override
 	public void exitSelector(ICSSParser.SelectorContext ctx) {
+		// Determine selector type from parse tree context
 		Selector selector;
 		if (ctx.LOWER_IDENT() != null) {
 			selector = new TagSelector(ctx.LOWER_IDENT().getText());
@@ -121,6 +122,7 @@ public class ASTListener extends ICSSBaseListener {
 
 	@Override
 	public void enterPlusMinExpressie(ICSSParser.PlusMinExpressieContext ctx) {
+		// Check operator at index 1 to determine operation type
 		if (ctx.getChild(1).getText().equals("+")) {
 			currentContainer.push(new AddOperation());
 		} else if (ctx.getChild(1).getText().equals("-")) {
@@ -147,6 +149,7 @@ public class ASTListener extends ICSSBaseListener {
 
 	@Override
 	public void exitLiteral(ICSSParser.LiteralContext ctx) {
+		// Determine literal type from parse tree context
 		Expression expression;
 		if (ctx.COLOR() != null) {
 			expression = new ColorLiteral(ctx.COLOR().getText());

@@ -119,6 +119,7 @@ public class Evaluator implements Transform {
         if (leftside instanceof ScalarLiteral && rightside instanceof ScalarLiteral) {
             return new ScalarLiteral(((ScalarLiteral) leftside).value * ((ScalarLiteral) rightside).value);
         }
+        // Ensure scalar is on the right side for easier handling
         if (leftside instanceof ScalarLiteral) {
             Literal temp = leftside;
             leftside = rightside;
@@ -153,6 +154,7 @@ public class Evaluator implements Transform {
     }
 
     private Literal evaluateVariableReference(VariableReference reference) {
+        // Search through scope
         for (HashMap<String, Literal> variableValue : variableValues) {
             if (variableValue.containsKey(reference.name)) {
                 return variableValue.get(reference.name);

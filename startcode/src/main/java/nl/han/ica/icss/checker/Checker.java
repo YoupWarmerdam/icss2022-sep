@@ -121,6 +121,7 @@ public class Checker {
     }
 
     private ExpressionType checkVariableReference(VariableReference reference) {
+        // Search through scope stack for variable definition
         for (HashMap<String, ExpressionType> scope : variableTypes) {
             if (scope.containsKey(reference.name)) {
                 return scope.get(reference.name);
@@ -178,6 +179,7 @@ public class Checker {
         ExpressionType leftside = checkExpression(operation.lhs);
         ExpressionType rightside = checkExpression(operation.rhs);
 
+        // Multiplication requires at least one scalar
         if (leftside != ExpressionType.SCALAR && rightside != ExpressionType.SCALAR) {
             operation.setError(
                     "Multiply operation can only be used with an expression of type scalar and an expression of another type");
